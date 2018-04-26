@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blueocean
+  labels:
+    app: blueocean
+spec: 
+  selector:
+    matchLabels:
+      app: blueocean
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: blueocean
+    spec: 
+      containers:
+      - name: blueocean
+        image: jenkinsci/blueocean
+        ports:
+        - containerPort: 8080
